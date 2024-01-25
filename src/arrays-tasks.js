@@ -20,14 +20,13 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
-  // const rez = Array.from({ length: end - start + 1 });
-  // let counter = start - 1;
-  // return rez.map(() => {
-  //   counter += 1;
-  //   return counter;
-  // });
+function getIntervalArray(start, end) {
+  const rez = Array.from({ length: end - start + 1 });
+  let counter = start - 1;
+  return rez.map(() => {
+    counter += 1;
+    return counter;
+  });
 }
 
 /**
@@ -43,8 +42,22 @@ function getIntervalArray(/* start, end */) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  let newArr = [];
+  if (arr1.length === arr2.length) {
+    newArr = arr1.map((elem, index) => elem + arr2[index]);
+  } else if (arr1.length === 0) {
+    newArr = arr2;
+  } else if (arr2.length === 0) {
+    newArr = arr1;
+  } else if (arr1.length < arr2.length) {
+    newArr = arr1.map((elem, index) => elem + arr2[index]);
+    newArr = newArr.concat(arr2[arr1.length]);
+  } else if (arr1.length > arr2.length) {
+    newArr = arr2.map((elem, index) => elem + arr1[index]);
+    newArr = newArr.concat(arr1[arr2.length]);
+  }
+  return newArr;
 }
 
 /**
@@ -169,6 +182,10 @@ function isSameLength(/* arr */) {
  */
 function isValueEqualsIndex(/* arr */) {
   throw new Error('Not implemented');
+  // const newArr = arr.filter(
+  //   (elem) => Number(elem) >= 0 && Number(elem) <= arr.length
+  // );
+  // return newArr.length === arr.length;
 }
 
 /**
@@ -310,9 +327,10 @@ function flattenArray(/* nestedArray */) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(arr, childrenSelector) {
-  const rez = arr.map((item) => childrenSelector(item));
-  return rez.flat(1);
+function selectMany(/* arr, childrenSelector */) {
+  throw new Error('Not implemented');
+  // const rez = arr.map((item) => childrenSelector(item));
+  // return rez.flat(1);
 }
 
 /**
