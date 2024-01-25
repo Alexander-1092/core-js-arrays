@@ -20,13 +20,14 @@
  *    getIntervalArray(0, 100) => [ 0, 1, 2, ..., 100 ]
  *    getIntervalArray(3, 3) => [ 3 ]
  */
-function getIntervalArray(start, end) {
-  const rez = Array.from({ length: end - start + 1 });
-  let counter = start - 1;
-  return rez.map(() => {
-    counter += 1;
-    return counter;
-  });
+function getIntervalArray(/* start, end */) {
+  throw new Error('Not implemented');
+  // const rez = Array.from({ length: end - start + 1 });
+  // let counter = start - 1;
+  // return rez.map(() => {
+  //   counter += 1;
+  //   return counter;
+  // });
 }
 
 /**
@@ -213,7 +214,7 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getTail(arr, n) {
-  return arr.slice(-n);
+  return arr.slice(arr.length - n);
 }
 
 /**
@@ -230,7 +231,7 @@ function getTail(arr, n) {
  */
 function doubleArray(arr) {
   const newArr = arr.slice(0);
-  return [...arr, ...newArr];
+  return arr.concat(newArr);
 }
 
 /**
