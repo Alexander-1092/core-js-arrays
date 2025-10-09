@@ -176,10 +176,9 @@ function getAverage(arr) {
  *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
-function isSameLength(/* arr */) {
-  throw new Error('Not implemented');
-  // const newArr = arr.map((elem) => elem.length === arr[0].length);
-  // return !newArr.includes(false);
+function isSameLength(arr) {
+  const newArr = arr.map((elem) => elem.length === arr[0].length);
+  return !newArr.includes(false);
 }
 
 /**
@@ -193,12 +192,11 @@ function isSameLength(/* arr */) {
  *    isValueEqualsIndex([2, 1, 0, 4, 5]) => true
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
-function isValueEqualsIndex(/* arr */) {
-  throw new Error('Not implemented');
-  // const newArr = arr.filter(
-  //   (elem) => Number(elem) >= 0 && Number(elem) <= arr.length
-  // );
-  // return newArr.length === arr.length;
+function isValueEqualsIndex(arr) {
+  const newArr = arr.filter(
+    (elem) => Number(elem) >= 0 && Number(elem) <= arr.length
+  );
+  return newArr.length === arr.length;
 }
 
 /**
@@ -311,9 +309,7 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
-}
+function createNDimensionalArray(/* n, size */) {}
 
 /**
  * Flattens a nested array into a single-level array.
@@ -343,10 +339,9 @@ function flattenArray(/* nestedArray */) {
  *   selectMany([[1, 2], [3, 4], [5, 6]], (x) => x) =>   [ 1, 2, 3, 4, 5, 6 ]
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
-  // const rez = arr.map((item) => childrenSelector(item));
-  // return rez.flat(1);
+function selectMany(arr, childrenSelector) {
+  const rez = arr.map((item) => childrenSelector(item));
+  return rez.flat(1);
 }
 
 /**
@@ -592,8 +587,16 @@ function propagateItemsByPositionIndex(arr) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  let rez = [];
+  if (n > 0) {
+    rez = [...arr.slice(n + 1), ...arr.slice(0, n + 1)];
+  } else if (n < 0) {
+    rez = [...arr.slice(Math.abs(n)), ...arr.slice(0, Math.abs(n))];
+  } else {
+    rez = arr;
+  }
+  return rez;
 }
 
 /**
